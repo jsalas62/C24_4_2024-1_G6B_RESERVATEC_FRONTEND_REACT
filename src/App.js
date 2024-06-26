@@ -2,7 +2,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import LoginButton from './components/LoginButton';
-import CheckUserStatus from './components/CheckUserStatus';
 import Register from './components/Register';
 import Home from './components/Home';
 import Profile from './components/Profile';
@@ -15,7 +14,6 @@ function App() {
       <div>
         <Routes>
           <Route path="/login" element={<LoginButton />} />
-          <Route path="/check" element={<CheckUserStatus />} />
           <Route path="/register" element={<Register />} />
           <Route path="/home" element={<Home />} />
           <Route path="/profile" element={<Profile />} />
