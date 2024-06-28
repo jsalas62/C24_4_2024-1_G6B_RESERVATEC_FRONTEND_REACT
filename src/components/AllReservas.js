@@ -2,18 +2,17 @@ import React, { useEffect, useState } from 'react';
 import axiosInstance from '../axiosConfig';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import CustomNavbar from './CustomNavbar';
-import { Modal, Spinner } from 'react-bootstrap';
-import './ReservaList.css'; // Asegúrate de importar los estilos personalizados
 
-const ReservaList = () => {
+const AllReservas = () => {
     const [reservas, setReservas] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
     const fetchReservas = async () => {
         try {
-            const response = await axiosInstance.get('/api/reserva/misreservas');
-            setReservas(response.data);
+            const response = await axiosInstance.get('/reservas');
+            const sortedReservas = response.data.sort((a, b) => new Date(a.fecha) - new Date(b.fecha));
+            setReservas(sortedReservas);
             setLoading(false);
         } catch (err) {
             setError(err);
@@ -31,20 +30,25 @@ const ReservaList = () => {
         return () => clearInterval(interval); // Limpia el intervalo al desmontar el componente
     }, []);
 
+    if (loading) {
+        return <p>Loading...</p>;
+    }
+
+    if (error) {
+        return <p>Error: {error.message}</p>;
+    }
+
     return (
         <div>
             <CustomNavbar />
-
             <div className="container mt-5">
-                <h1>Mis Reservas</h1>
-                {error && <p>Error: {error.message}</p>}
+                <h1>Todas las Reservas</h1>
                 <table className="table table-striped">
                     <thead>
                         <tr>
                             <th>Campo</th>
-                            <th>Horario</th>
                             <th>Fecha</th>
-                            <th>Comentario</th>
+                            <th>Horario</th>
                             <th>Estado</th>
                         </tr>
                     </thead>
@@ -52,23 +56,16 @@ const ReservaList = () => {
                         {reservas.map(reserva => (
                             <tr key={reserva.id}>
                                 <td>{reserva.campo.nombre}</td>
-                                <td>{reserva.horario.horaInicio} - {reserva.horario.horaFin}</td>
                                 <td>{reserva.fecha}</td>
-                                <td>{reserva.comentario}</td>
+                                <td>{reserva.horario.horaInicio} - {reserva.horario.horaFin}</td>
                                 <td>{reserva.estado.nombre}</td>
                             </tr>
                         ))}
                     </tbody>
                 </table>
             </div>
-
-            <Modal show={loading} centered contentClassName="loading-modal">
-                <Modal.Body className="d-flex justify-content-center align-items-center">
-                    <Spinner animation="border" role="status" />
-                </Modal.Body>
-            </Modal>
         </div>
     );
 };
 
-export default ReservaList;
+export default AllReservas;

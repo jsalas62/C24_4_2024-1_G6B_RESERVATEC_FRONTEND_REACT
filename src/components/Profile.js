@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axiosInstance from '../axiosConfig'; // Asegúrate de importar la instancia configurada
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from 'react-router-dom';
+import CustomNavbar from './CustomNavbar';
+
 
 const Profile = () => {
     const [userData, setUserData] = useState({
@@ -15,7 +17,7 @@ const Profile = () => {
 
     useEffect(() => {
         // Obtener datos del usuario desde el perfil
-        axiosInstance.get('/api/user/profile')
+        axiosInstance.get('/api/user/profile', { withCredentials: true })
             .then(response => {
                 const { nombres, email, codigoTecsup, carrera } = response.data;
                 setUserData({
@@ -28,7 +30,7 @@ const Profile = () => {
             .catch(error => console.error('Error al obtener perfil:', error));
 
         // Obtener la lista de carreras
-        axiosInstance.get('/api/carreras')
+        axiosInstance.get('/api/carreras', { withCredentials: true })
             .then(response => setCarreras(response.data))
             .catch(error => console.error('Error al obtener carreras:', error));
     }, []);
@@ -50,10 +52,10 @@ const Profile = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axiosInstance.put('/api/user/profile', userData)
+        axiosInstance.put('/api/user/profile', userData, { withCredentials: true })
             .then(() => {
                 alert('Perfil actualizado exitosamente!');
-                navigate('/home');
+                navigate('/');
             })
             .catch(error => {
                 console.error('Error al actualizar perfil:', error);
@@ -63,31 +65,65 @@ const Profile = () => {
 
     return (
         <div>
-            <h1>Actualizar Perfil</h1>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label>Nombre:</label>
-                    <input type="text" name="nombres" value={userData.nombres} onChange={handleChange} disabled />
-                </div>
-                <div>
-                    <label>Email:</label>
-                    <input type="email" name="email" value={userData.email} onChange={handleChange} disabled />
-                </div>
-                <div>
-                    <label>Código Tecsup:</label>
-                    <input type="text" name="codigoTecsup" value={userData.codigoTecsup} onChange={handleChange} required />
-                </div>
-                <div>
-                    <label>Carrera:</label>
-                    <select name="carreraId" value={userData.carrera.id} onChange={handleChange} required>
-                        <option value="">Selecciona una Carrera</option>
-                        {carreras.map(carrera => (
-                            <option key={carrera.id} value={carrera.id}>{carrera.nombre}</option>
-                        ))}
-                    </select>
-                </div>
-                <button type="submit">Actualizar</button>
-            </form>
+            <CustomNavbar />
+
+            <div className="container mt-5">
+                <h1>Actualizar Perfil</h1>
+                <form onSubmit={handleSubmit}>
+                    <div className="form-group">
+                        <label>Nombre:</label>
+                        <input
+                            type="text"
+                            name="nombres"
+                            value={userData.nombres}
+                            onChange={handleChange}
+                            className="form-control"
+                            disabled
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label>Email:</label>
+                        <input
+                            type="email"
+                            name="email"
+                            value={userData.email}
+                            onChange={handleChange}
+                            className="form-control"
+                            disabled
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label>Código Tecsup:</label>
+                        <input
+                            type="text"
+                            name="codigoTecsup"
+                            value={userData.codigoTecsup}
+                            onChange={handleChange}
+                            className="form-control"
+                            required
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label>Carrera:</label>
+                        <select
+                            name="carreraId"
+                            value={userData.carrera.id}
+                            onChange={handleChange}
+                            className="form-control"
+                            required
+                        >
+                            <option value="">Selecciona una Carrera</option>
+                            {carreras.map(carrera => (
+                                <option key={carrera.id} value={carrera.id}>
+                                    {carrera.nombre}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
+                    <br />
+                    <button type="submit" className="btn btn-primary">Actualizar</button>
+                </form>
+            </div>
         </div>
     );
 };

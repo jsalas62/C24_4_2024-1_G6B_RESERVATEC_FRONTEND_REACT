@@ -54,7 +54,7 @@ const Register = () => {
         axiosInstance.post('/api/user/register', userData)
             .then(() => {
                 alert('Registro exitoso!');
-                navigate('/home');
+                navigate('/');
             })
             .catch(error => {
                 console.error('Error al registrar usuario:', error);
@@ -63,31 +63,61 @@ const Register = () => {
     };
 
     return (
-        <div>
+        <div className="container mt-5">
             <h1>Registro de Usuario</h1>
             <form onSubmit={handleSubmit}>
-                <div>
+                <div className="form-group">
                     <label>Nombre:</label>
-                    <input type="text" name="nombres" value={userData.nombres} onChange={handleChange} disabled />
+                    <input
+                        type="text"
+                        name="nombres"
+                        value={userData.nombres}
+                        onChange={handleChange}
+                        className="form-control"
+                        disabled
+                    />
                 </div>
-                <div>
+                <div className="form-group">
                     <label>Email:</label>
-                    <input type="email" name="email" value={userData.email} onChange={handleChange} disabled />
+                    <input
+                        type="email"
+                        name="email"
+                        value={userData.email}
+                        onChange={handleChange}
+                        className="form-control"
+                        disabled
+                    />
                 </div>
-                <div>
+                <div className="form-group">
                     <label>Código Tecsup:</label>
-                    <input type="text" name="codigoTecsup" value={userData.codigoTecsup} onChange={handleChange} required />
+                    <input
+                        type="text"
+                        name="codigoTecsup"
+                        value={userData.codigoTecsup}
+                        onChange={handleChange}
+                        className="form-control"
+                        required
+                    />
                 </div>
-                <div>
+                <div className="form-group">
                     <label>Carrera:</label>
-                    <select name="carreraId" value={userData.carrera.id} onChange={handleChange} required>
+                    <select
+                        name="carreraId"
+                        value={userData.carrera.id}
+                        onChange={handleChange}
+                        className="form-control"
+                        required
+                    >
                         <option value="">Selecciona una Carrera</option>
                         {carreras.map(carrera => (
-                            <option key={carrera.id} value={carrera.id}>{carrera.nombre}</option>
+                            <option key={carrera.id} value={carrera.id}>
+                                {carrera.nombre}
+                            </option>
                         ))}
                     </select>
                 </div>
-                <button type="submit">Registrar</button>
+                <br />
+                <button type="submit" className="btn btn-primary">Registrar</button>
             </form>
         </div>
     );
