@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import axiosInstance from '../axiosConfig';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import CustomNavbar from './CustomNavbar';
+import { Modal, Spinner } from 'react-bootstrap';
+import './ReservaList.css'; // Asegúrate de importar los estilos personalizados
 
 const AllReservas = () => {
     const [reservas, setReservas] = useState([]);
@@ -30,14 +32,6 @@ const AllReservas = () => {
         return () => clearInterval(interval); // Limpia el intervalo al desmontar el componente
     }, []);
 
-    if (loading) {
-        return <p>Loading...</p>;
-    }
-
-    if (error) {
-        return <p>Error: {error.message}</p>;
-    }
-
     return (
         <div>
             <CustomNavbar />
@@ -64,6 +58,11 @@ const AllReservas = () => {
                     </tbody>
                 </table>
             </div>
+            <Modal show={loading} centered contentClassName="loading-modal">
+                <Modal.Body className="d-flex justify-content-center align-items-center">
+                    <Spinner animation="border" role="status" />
+                </Modal.Body>
+            </Modal>
         </div>
     );
 };
