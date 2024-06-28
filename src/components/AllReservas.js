@@ -17,7 +17,8 @@ const AllReservas = () => {
             setReservas(sortedReservas);
             setLoading(false);
         } catch (err) {
-            setError(err);
+            console.error('Error al cargar las reservas:', err);
+            setError('Error al cargar las reservas. Inténtalo de nuevo más tarde.');
             setLoading(false);
         }
     };
@@ -38,6 +39,7 @@ const AllReservas = () => {
 
             <div className="container mt-5">
                 <h1>Todas las Reservas</h1>
+                {error && <div className="alert alert-danger">{error}</div>}
                 <table className="table table-striped">
                     <thead>
                         <tr>
@@ -59,6 +61,7 @@ const AllReservas = () => {
                     </tbody>
                 </table>
             </div>
+
             <Modal show={loading} centered contentClassName="loading-modal">
                 <Modal.Body className="d-flex justify-content-center align-items-center">
                     <Spinner animation="border" role="status" />
