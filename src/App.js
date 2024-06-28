@@ -13,9 +13,9 @@ function App() {
     <Router>
       <div>
         <Routes>
-          <Route path="/login" element={<LoginButton />} />
+          <Route path="/" element={<LoginButton />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/" element={<Home />} />
+          <Route path="/inicio" element={<Home />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/reserva/nueva" element={<ReservaForm />} />
           <Route path="/reserva/misreservas" element={<ReservaList />} />

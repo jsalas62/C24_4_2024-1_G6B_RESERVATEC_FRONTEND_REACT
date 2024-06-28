@@ -55,7 +55,7 @@ const Profile = () => {
         axiosInstance.put('/api/user/profile', userData, { withCredentials: true })
             .then(() => {
                 alert('Perfil actualizado exitosamente!');
-                navigate('/');
+                navigate('/inicio');
             })
             .catch(error => {
                 console.error('Error al actualizar perfil:', error);
@@ -100,7 +100,7 @@ const Profile = () => {
                             value={userData.codigoTecsup}
                             onChange={handleChange}
                             className="form-control"
-                            required
+                            disabled
                         />
                     </div>
                     <div className="form-group">
@@ -110,7 +110,7 @@ const Profile = () => {
                             value={userData.carrera.id}
                             onChange={handleChange}
                             className="form-control"
-                            required
+                            disabled
                         >
                             <option value="">Selecciona una Carrera</option>
                             {carreras.map(carrera => (

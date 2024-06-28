@@ -54,7 +54,7 @@ const Register = () => {
         axiosInstance.post('/api/user/register', userData)
             .then(() => {
                 alert('Registro exitoso!');
-                navigate('/');
+                navigate('/inicio');
             })
             .catch(error => {
                 console.error('Error al registrar usuario:', error);
