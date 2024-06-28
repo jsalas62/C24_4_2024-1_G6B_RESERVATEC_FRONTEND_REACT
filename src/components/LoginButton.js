@@ -3,9 +3,9 @@ import React from 'react';
 const LoginButton = () => {
     const handleLogin = () => {
         // Para entorno local
-        //window.location.href = 'http://localhost:8080/oauth2/authorization/google'; 
+        // window.location.href = 'http://localhost:8080/oauth2/authorization/google'; 
 
-        // Para entorno de producción local
+        // Para entorno de producción
         window.location.href = 'https://balanced-delight-production.up.railway.app/login/oauth2/authorization/google';
     };
 
@@ -15,6 +15,5 @@ const LoginButton = () => {
         </button>
     );
 };
-
 
 export default LoginButton;
