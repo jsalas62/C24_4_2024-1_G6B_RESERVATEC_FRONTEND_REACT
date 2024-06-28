@@ -6,7 +6,7 @@ const LoginButton = () => {
         // window.location.href = 'http://localhost:8080/oauth2/authorization/google'; 
 
         // Para entorno de producción
-        window.location.href = 'https://balanced-delight-production.up.railway.app/login/oauth2/authorization/google?platform=web';
+        window.location.href = 'https://balanced-delight-production.up.railway.app/login/oauth2/authorization/google';
     };
 
     return (
