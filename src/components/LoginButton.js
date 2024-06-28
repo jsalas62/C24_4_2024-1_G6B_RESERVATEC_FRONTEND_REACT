@@ -33,10 +33,10 @@ function LoginPage() {
 
     const handleLogin = () => {
         // Para entorno local
-        window.location.href = 'http://localhost:8080/oauth2/authorization/google';
+        //window.location.href = 'http://localhost:8080/oauth2/authorization/google';
 
         // Para entorno de producción
-        //window.location.href = 'https://balanced-delight-production.up.railway.app/oauth2/authorization/google';
+        window.location.href = 'https://balanced-delight-production.up.railway.app/oauth2/authorization/google';
     };
 
     // Mostrar la página de login si el usuario no está autenticado
