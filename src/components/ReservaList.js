@@ -4,7 +4,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import CustomNavbar from './CustomNavbar';
 import { Modal, Spinner } from 'react-bootstrap';
 import './ReservaList.css'; // Asegúrate de importar los estilos personalizados
-
 const ReservaList = () => {
     const [reservas, setReservas] = useState([]);
     const [loading, setLoading] = useState(true);
