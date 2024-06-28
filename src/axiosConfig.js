@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-    //baseURL: 'http://localhost:8080', // URL base de tu backend con HTTPS
+    //baseURL: 'http://localhost:8080', // URL base de tu backend con HTTPS >
     baseURL: 'https://balanced-delight-production.up.railway.app',
     withCredentials: true, // Esto asegura que las cookies se envíen con cada solicitud
     headers: {
