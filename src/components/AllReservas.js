@@ -3,7 +3,7 @@ import axiosInstance from '../axiosConfig';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import CustomNavbar from './CustomNavbar';
 import { Modal, Spinner } from 'react-bootstrap';
-import './ReservaList.css'; // Asegúrate de importar los estilos personalizados
+import './ReservaList.css'; 
 
 const AllReservas = () => {
     const [reservas, setReservas] = useState([]);

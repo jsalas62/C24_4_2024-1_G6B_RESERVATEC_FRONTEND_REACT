@@ -7,7 +7,6 @@ const Home = () => {
     const [message, setMessage] = useState('');
 
     useEffect(() => {
-        // Hacer una llamada a la API cuando el componente se monta
         axiosInstance.get('/api/home', { withCredentials: true })
             .then(response => {
                 setMessage(response.data.message);
