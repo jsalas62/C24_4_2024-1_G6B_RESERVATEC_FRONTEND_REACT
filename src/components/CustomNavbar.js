@@ -1,13 +1,13 @@
-// src/components/CustomNavbar.js
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar, Nav, Container } from 'react-bootstrap';
+import LogoutButton from './LogoutButton'; // Importa el componente LogoutButton
 
 const CustomNavbar = () => {
     return (
         <Navbar bg="dark" variant="dark" expand="lg">
             <Container>
-                <Navbar.Brand href="/">Inicio</Navbar.Brand>
+                <Navbar.Brand as={Link} to="/">Inicio</Navbar.Brand> {/* Usa Link de react-router-dom para la navegación */}
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
@@ -15,6 +15,10 @@ const CustomNavbar = () => {
                         <Nav.Link as={Link} to="/profile">Mi Perfil</Nav.Link>
                         <Nav.Link as={Link} to="/reserva/nueva">Reservar</Nav.Link>
                         <Nav.Link as={Link} to="/reserva/misreservas">Mis Reservas</Nav.Link>
+                    </Nav>
+                    <Nav>
+                        {/* Aquí colocamos el componente LogoutButton */}
+                        <LogoutButton />
                     </Nav>
                 </Navbar.Collapse>
             </Container>
