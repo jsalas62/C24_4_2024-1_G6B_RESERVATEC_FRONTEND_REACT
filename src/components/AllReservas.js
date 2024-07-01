@@ -37,7 +37,6 @@ const AllReservas = () => {
 
     return (
         <div>
-            <CustomNavbar />
             <div className="container mx-auto mt-5 p-4">
                 <div className="flex justify-between items-center mb-5">
                     <h1 className="text-3xl font-bold text-center">Todas las Reservas</h1>
