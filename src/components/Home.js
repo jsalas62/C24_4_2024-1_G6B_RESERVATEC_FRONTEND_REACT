@@ -36,22 +36,23 @@ const Home = () => {
         <div className="carousel-item active">
           <img src="/pelota1.jpg" className="d-block w-100 img_carrusel" alt="First slide" />
           <div className="carousel-caption d-none d-md-block">
-            <h5>First slide label</h5>
-            <p>Some representative placeholder content for the first slide.</p>
+            <h5>"Reserva tu espacio deportivo favorito"
+            </h5>
+            <p>Encuentra y reserva fácilmente canchas de fútbol, básquet, tenis y más. ¡Tu deporte, tu espacio, tu horario!</p>
           </div>
         </div>
         <div className="carousel-item">
           <img src="/pelota2.jpg" className="d-block w-100 img_carrusel" alt="Second slide" />
           <div className="carousel-caption d-none d-md-block">
-            <h5>Second slide label</h5>
-            <p>Some representative placeholder content for the second slide.</p>
+            <h5>Próximamente Copa Tecsup</h5>
+            <p>Prepárate para la emoción de la Copa Tecsup. ¡Muy pronto podrás participar y competir en este gran evento deportivo!</p>
           </div>
         </div>
         <div className="carousel-item">
           <img src="/pelota3.jpg" className="d-block w-100 img_carrusel" alt="Third slide" />
           <div className="carousel-caption d-none d-md-block">
-            <h5>Third slide label</h5>
-            <p>Some representative placeholder content for the third slide.</p>
+            <h5>Deporte y Salud</h5>
+            <p>El deporte es vida. ¡Mantente activo y mejora tu bienestar físico y mental! Reserva tu espacio, sal y muévete con nosotros. ¡Tu salud te lo agradecerá!</p>
           </div>
         </div>
       </div>
