@@ -19,8 +19,8 @@ const App = () => {
         <Route path="/" element={<LoginButton />} />
 
                   {/*Rutas Protegidas*/}
-        <Route element={<ProtectRoute/>}>
         <Route path="/register" element={<Register />} />
+        <Route element={<ProtectRoute/>}>
         <Route path="/inicio" element={<Home />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/reserva/misreservas" element={<ReservaList />} />

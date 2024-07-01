@@ -14,7 +14,7 @@ const ReservaList = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [modalT, setModalT] = useState(false);
-    const [sortConfig, setSortConfig] = useState({ key: 'fecha', direction: 'asc' });
+    const [sortConfig, setSortConfig] = useState({ key: 'fecha', direction: 'des' });
     const [selectedDate, setSelectedDate] = useState(null);
 
     const fetchReservas = useCallback(async () => {
@@ -82,6 +82,10 @@ const ReservaList = () => {
         setSortConfig({ key, direction });
     };
 
+    const handleClearDate = () => {
+        setSelectedDate(null);
+    };
+
     return (
         <div>
             <CustomNavbar />
@@ -117,6 +121,12 @@ const ReservaList = () => {
                             placeholderText="Selecciona una fecha"
                             dateFormat="dd/MM/yyyy"
                         />
+                        <button 
+                            onClick={handleClearDate}
+                            className="flex justify-center items-center gap-2 w-28 h-12 cursor-pointer rounded-md shadow-2xl text-white font-semibold bg-gradient-to-r from-gray-400 via-gray-500 to-gray-300 hover:shadow-xl hover:from-gray-500 hover:to-gray-400 hover:scale-105 duration-300"
+                        >
+                            Limpiar
+                        </button>
                     </div>
                 </div>
                 {error && <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-5">{error.message}</div>}
@@ -125,13 +135,13 @@ const ReservaList = () => {
                         <thead className="bg-[#05a1e0] text-white">
                             <tr>
                                 <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Campo</th>
-                                <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Horario</th>
                                 <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
                                     Fecha
                                     <button onClick={() => handleSort('fecha')}>
                                         {sortConfig.key === 'fecha' && sortConfig.direction === 'asc' ? ' ▲' : ' ▼'}
                                     </button>
                                 </th>
+                                <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Horario</th>
                                 <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Comentario</th>
                                 <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Estado</th>
                             </tr>
@@ -140,8 +150,8 @@ const ReservaList = () => {
                             {reservas.map(reserva => (
                                 <tr key={reserva.id}>
                                     <td className="px-6 py-4 whitespace-nowrap">{reserva.campo.nombre}</td>
-                                    <td className="px-6 py-4 whitespace-nowrap">{reserva.horario.horaInicio} - {reserva.horario.horaFin}</td>
                                     <td className="px-6 py-4 whitespace-nowrap">{format(parseISO(reserva.fecha), 'dd/MM/yyyy')}</td>
+                                    <td className="px-6 py-4 whitespace-nowrap">{reserva.horario.horaInicio} - {reserva.horario.horaFin}</td>
                                     <td className="px-6 py-4 whitespace-nowrap">{reserva.comentario}</td>
                                     <td className="px-6 py-4 whitespace-nowrap">{reserva.estado.nombre}</td>
                                 </tr>

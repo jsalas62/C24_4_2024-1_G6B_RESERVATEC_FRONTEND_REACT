@@ -13,7 +13,7 @@ const AllReservas = () => {
     const [originalReservas, setOriginalReservas] = useState([]);
     const [error, setError] = useState(null);
     const [modalT, setModalT] = useState(false);
-    const [sortConfig, setSortConfig] = useState({ key: 'fecha', direction: 'des' });
+    const [sortConfig, setSortConfig] = useState({ key: 'fecha', direction: 'desc' });
     const [selectedDate, setSelectedDate] = useState(null);
 
     const fetchReservas = useCallback(async () => {
@@ -80,6 +80,10 @@ const AllReservas = () => {
         setSortConfig({ key, direction });
     };
 
+    const handleClearDate = () => {
+        setSelectedDate(null);
+    };
+
     return (
         <div>
             <CustomNavbar />
@@ -115,6 +119,12 @@ const AllReservas = () => {
                             placeholderText="Selecciona una fecha"
                             dateFormat="dd/MM/yyyy"
                         />
+                        <button 
+                            onClick={handleClearDate}
+                            className="flex justify-center items-center gap-2 w-28 h-12 cursor-pointer rounded-md shadow-2xl text-white font-semibold bg-gradient-to-r from-gray-400 via-gray-500 to-gray-300 hover:shadow-xl hover:from-gray-500 hover:to-gray-400 hover:scale-105 duration-300"
+                        >
+                            Limpiar
+                        </button>
                     </div>
                 </div>
                 {error && <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-5">{error}</div>}
