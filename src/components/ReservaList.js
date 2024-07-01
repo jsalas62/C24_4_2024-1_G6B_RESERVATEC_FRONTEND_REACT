@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState } from 'react';
 import axiosInstance from '../axiosConfig';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import CustomNavbar from './CustomNavbar';
@@ -6,16 +6,20 @@ import './ReservaList.css';
 
 const ReservaList = () => {
     const [reservas, setReservas] = useState([]);
+    const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    const fetchReservas = useCallback(async () => {
+    const fetchReservas = async () => {
         try {
             const response = await axiosInstance.get('/api/reserva/misreservas');
             setReservas(response.data);
+            setLoading(false);
+            console.log(loading);
         } catch (err) {
             setError(err);
+            setLoading(false);
         }
-    }, []); // useCallback para memoizar la función y evitar problemas con dependencias
+    };
 
     useEffect(() => {
         fetchReservas();
@@ -25,11 +29,12 @@ const ReservaList = () => {
         }, 10000); 
 
         return () => clearInterval(interval); 
-    }, [fetchReservas]); // Añadir fetchReservas como dependencia
+    }, []);
 
     return (
         <div>
             <CustomNavbar />
+
             <div className="container mx-auto mt-5 p-4">
                 <h1 className="text-3xl font-bold mb-4">Mis Reservas</h1>
                 {error && <p>Error: {error.message}</p>}
@@ -58,6 +63,7 @@ const ReservaList = () => {
                     </table>
                 </div>
             </div>
+
         </div>
     );
 };

@@ -76,8 +76,8 @@ const Register = () => {
           ></div>
         </div>
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Actualizar Perfil</h2>
-          <p className="mt-2 text-lg leading-8 text-gray-600">Actualiza la información de tu perfil.</p>
+          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Completa tus datos para poder continuar</h2>
+          <p className="mt-2 text-lg leading-8 text-gray-600">Ingresa la información necesaria</p>
         </div>
         <form onSubmit={handleSubmit} className="mx-auto mt-16 max-w-xl sm:mt-20">
           <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">

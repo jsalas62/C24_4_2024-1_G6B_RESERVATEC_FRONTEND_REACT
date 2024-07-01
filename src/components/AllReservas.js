@@ -13,7 +13,7 @@ const AllReservas = () => {
     const [originalReservas, setOriginalReservas] = useState([]);
     const [error, setError] = useState(null);
     const [modalT, setModalT] = useState(false);
-    const [sortConfig, setSortConfig] = useState({ key: 'fecha', direction: 'asc' });
+    const [sortConfig, setSortConfig] = useState({ key: 'fecha', direction: 'des' });
     const [selectedDate, setSelectedDate] = useState(null);
 
     const fetchReservas = useCallback(async () => {
