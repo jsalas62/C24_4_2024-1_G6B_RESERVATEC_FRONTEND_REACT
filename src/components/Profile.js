@@ -67,7 +67,7 @@ const Profile = () => {
         <div>
             <CustomNavbar />
 
-            <div className="isolate bg-white px-6 py-24 sm:py-32 lg:px-8">
+            <div className=" bg-white px-6 py-24 sm:py-32 lg:px-8">
   <div
     className="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]"
     aria-hidden="true"
@@ -149,14 +149,7 @@ const Profile = () => {
         </div>
       </div>
     </div>
-    <div className="mt-10">
-    <button 
-  type="submit" 
-  className="block w-full rounded-md bg-[#05a1e0] px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-[#048bb0] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#05a1e0]">
-  Actualizar
-</button>
-
-    </div>
+   
   </form>
 </div>
 

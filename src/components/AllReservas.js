@@ -37,30 +37,33 @@ const AllReservas = () => {
         <div>
             <CustomNavbar />
 
-            <div className="container mt-5">
-                <h1>Todas las Reservas</h1>
-                {error && <div className="alert alert-danger">{error}</div>}
-                <table className="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>Campo</th>
-                            <th>Fecha</th>
-                            <th>Horario</th>
-                            <th>Estado</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {reservas.map(reserva => (
-                            <tr key={reserva.id}>
-                                <td>{reserva.campo.nombre}</td>
-                                <td>{reserva.fecha}</td>
-                                <td>{reserva.horario.horaInicio} - {reserva.horario.horaFin}</td>
-                                <td>{reserva.estado.nombre}</td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
-            </div>
+            <div className="container mx-auto mt-5 p-4">
+  <h1 className="text-3xl font-bold text-center mb-5">Todas las Reservas</h1>
+  {error && <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-5">{error}</div>}
+  <div className="overflow-x-auto">
+    <table className="min-w-full divide-y divide-gray-200">
+      <thead className="bg-[#05a1e0] text-white">
+        <tr>
+          <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Campo</th>
+          <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Fecha</th>
+          <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Horario</th>
+          <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Estado</th>
+        </tr>
+      </thead>
+      <tbody className="bg-white divide-y divide-gray-200">
+        {reservas.map(reserva => (
+          <tr key={reserva.id}>
+            <td className="px-6 py-4 whitespace-nowrap">{reserva.campo.nombre}</td>
+            <td className="px-6 py-4 whitespace-nowrap">{reserva.fecha}</td>
+            <td className="px-6 py-4 whitespace-nowrap">{reserva.horario.horaInicio} - {reserva.horario.horaFin}</td>
+            <td className="px-6 py-4 whitespace-nowrap">{reserva.estado.nombre}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</div>
+
 
             <Modal show={loading} centered contentClassName="loading-modal">
                 <Modal.Body className="d-flex justify-content-center align-items-center">
