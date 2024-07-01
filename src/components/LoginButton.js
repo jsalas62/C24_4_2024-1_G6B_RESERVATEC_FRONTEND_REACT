@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
-import axiosInstance from '../axiosConfig';
+
 
 const LoginButton = () => {
+   
     const handleLogin = () => {
         // Para entorno local
         // window.location.href = 'http://localhost:8080/oauth2/authorization/google'; 
@@ -9,11 +9,6 @@ const LoginButton = () => {
         // Para entorno de producción
         window.location.href = 'https://balanced-delight-production.up.railway.app/login/oauth2/authorization/google';
     };
-    useEffect(() => {
-        axiosInstance.post('/logout')
-        .catch(err => console.error('Error al realizar logout:', err))
-    }, [])
-    
 
     return (
         <section className='inicio_login'>
