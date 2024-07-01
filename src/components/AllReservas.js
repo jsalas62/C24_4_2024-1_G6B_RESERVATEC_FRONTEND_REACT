@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react';
 import axiosInstance from '../axiosConfig';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import CustomNavbar from './CustomNavbar';
-import { Modal, Spinner } from 'react-bootstrap';
 import './ReservaList.css'; 
+import ModalReserva from './ModalReserva';
 
 const AllReservas = () => {
     const [reservas, setReservas] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [modalT, setModalT] = useState(false);
 
     const fetchReservas = async () => {
         try {
@@ -16,6 +17,7 @@ const AllReservas = () => {
             const sortedReservas = response.data.sort((a, b) => new Date(a.fecha) - new Date(b.fecha));
             setReservas(sortedReservas);
             setLoading(false);
+            console.log(loading);
         } catch (err) {
             console.error('Error al cargar las reservas:', err);
             setError('Error al cargar las reservas. Inténtalo de nuevo más tarde.');
@@ -33,6 +35,9 @@ const AllReservas = () => {
         return () => clearInterval(interval); // Limpia el intervalo al desmontar el componente
     }, []);
 
+    const handleModal = () =>{
+        setModalT(true);
+    }
     return (
         <div>
             <CustomNavbar />
@@ -40,7 +45,7 @@ const AllReservas = () => {
             <div className="container mx-auto mt-5 p-4">
   <div className="flex justify-between items-center mb-5">
     <h1 className="text-3xl font-bold text-center">Todas las Reservas</h1>
-    <button
+    <button onClick={handleModal}
  className="flex justify-center items-center gap-2 w-28 h-12 cursor-pointer rounded-md shadow-2xl text-white font-semibold bg-gradient-to-r from-blue-400 via-cyan-500 to-blue-300 hover:shadow-xl hover:from-cyan-500 hover:to-blue-400 hover:scale-105 duration-300"
 >
   <svg class="w-5 fill-white" viewBox="0 0 15 15">
@@ -85,17 +90,14 @@ const AllReservas = () => {
         ))}
       </tbody>
     </table>
-  </div>
+    </div>
+    </div>
+        {
+        modalT ? <ModalReserva setModalT={setModalT}/> : null
+        }
+
+    
 </div>
-
-
-
-            <Modal show={loading} centered contentClassName="loading-modal">
-                <Modal.Body className="d-flex justify-content-center align-items-center">
-                    <Spinner animation="border" role="status" />
-                </Modal.Body>
-            </Modal>
-        </div>
     );
 };
 

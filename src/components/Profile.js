@@ -67,7 +67,7 @@ const Profile = () => {
         <div>
             <CustomNavbar />
 
-            <div className=" bg-white px-6 py-24 sm:py-32 lg:px-8">
+            <div className=" bg-white px-6 py-5 sm:py-32 lg:px-8">
   <div
     className="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]"
     aria-hidden="true"
@@ -77,7 +77,7 @@ const Profile = () => {
     <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Perfil</h2>
     <p className="mt-2 text-lg leading-8 text-gray-600">Informacion de Perfil.</p>
   </div>
-  <form onSubmit={handleSubmit} className="mx-auto mt-16 max-w-xl sm:mt-20">
+  <form onSubmit={handleSubmit} className="mx-auto mt-5 max-w-xl sm:mt-20">
     <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
       <div>
         <label htmlFor="nombres" className="block text-sm font-semibold leading-6 text-gray-900">Nombre</label>
