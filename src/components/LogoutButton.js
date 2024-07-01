@@ -6,7 +6,7 @@ const LogoutButton = () => {
         try {
             await axiosInstance.post('/logout');
             alert('Logout exitoso'); // Puedes mostrar un mensaje de confirmación si lo deseas
-            // Aquí podrías realizar más acciones si fuera necesario, como actualizar el estado de la aplicación
+            window.location.href = 'http://localhost:3000';
         } catch (error) {
             console.error('Error al realizar logout:', error);
             alert('Error al intentar cerrar sesión. Inténtalo de nuevo.'); // Manejo básico de errores
