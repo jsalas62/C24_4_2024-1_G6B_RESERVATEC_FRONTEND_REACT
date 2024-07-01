@@ -36,7 +36,7 @@ const ModalReserva = ({setModalT}) => {
             })
             .catch(error => {
                 if (error.response && error.response.data) {
-                    alert(error.response.data); // Mostrar mensaje de error en un alert
+                    alert(error.response.data); 
                 } else {
                     alert('Error creando la reserva. Por favor, intente nuevamente.');
                 }
@@ -50,12 +50,12 @@ const ModalReserva = ({setModalT}) => {
     }
   return (
     <div className="fixed inset-0 z-50 overflow-auto bg-gray-900 bg-opacity-50 flex justify-center items-center">
-      {/* Contenedor del modal */}
+    
       <div className="relative bg-white w-full max-w-md p-6 rounded-lg shadow-xl">
-        {/* Título del modal */}
+       
         <div className="flex justify-between items-center mb-4">
           <h3 className="text-lg font-semibold text-gray-900">Modal de Reserva</h3>
-          {/* Botón para cerrar el modal */}
+         
           <button
             className="text-gray-600 hover:text-gray-800 focus:outline-none focus:text-gray-800"
             aria-label="Close modal"
@@ -70,7 +70,7 @@ const ModalReserva = ({setModalT}) => {
             </svg>
           </button>
         </div>
-        {/* Contenido del cuerpo del modal */}
+       
         <div className="container mt-5">
                 <h1 className="mb-4">Crear Reserva</h1>
                 <form onSubmit={handleSubmit}>

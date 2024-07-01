@@ -30,9 +30,9 @@ const AllReservas = () => {
 
         const interval = setInterval(() => {
             fetchReservas();
-        }, 10000); // Actualiza cada 10 segundos
+        }, 10000); 
 
-        return () => clearInterval(interval); // Limpia el intervalo al desmontar el componente
+        return () => clearInterval(interval); 
     }, []);
 
     const handleModal = () =>{
