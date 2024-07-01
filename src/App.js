@@ -4,7 +4,6 @@ import LoginButton from './components/LoginButton';
 import Register from './components/Register';
 import Home from './components/Home';
 import Profile from './components/Profile';
-import ReservaForm from './components/ReservaForm';
 import ReservaList from './components/ReservaList';
 import AllReservas from './components/AllReservas';
 
@@ -17,7 +16,6 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/inicio" element={<Home />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/reserva/nueva" element={<ReservaForm />} />
           <Route path="/reserva/misreservas" element={<ReservaList />} />
           <Route path="/reservas/todas" element={<AllReservas />} />
         </Routes>
