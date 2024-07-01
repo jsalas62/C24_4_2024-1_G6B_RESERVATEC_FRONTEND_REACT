@@ -23,7 +23,7 @@ const LogoutButton = () => {
         .then(res => {
             console.log(res.data)
             alert('Logout exitoso')
-            navigate("/login")
+            navigate("/")
         })
         .catch(err => alert(`Error al intentar cerrar sesión. Inténtalo de nuevo. ${err}`));
     }
