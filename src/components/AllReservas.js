@@ -38,8 +38,32 @@ const AllReservas = () => {
             <CustomNavbar />
 
             <div className="container mx-auto mt-5 p-4">
-  <h1 className="text-3xl font-bold text-center mb-5">Todas las Reservas</h1>
-  {error && <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-5">{error}</div>}
+  <div className="flex justify-between items-center mb-5">
+    <h1 className="text-3xl font-bold text-center">Todas las Reservas</h1>
+    <button
+ className="flex justify-center items-center gap-2 w-28 h-12 cursor-pointer rounded-md shadow-2xl text-white font-semibold bg-gradient-to-r from-blue-400 via-cyan-500 to-blue-300 hover:shadow-xl hover:from-cyan-500 hover:to-blue-400 hover:scale-105 duration-300"
+>
+  <svg class="w-5 fill-white" viewBox="0 0 15 15">
+    <svg
+      class="w-6 h-6"
+      stroke="currentColor"
+      stroke-width="1.5"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+        stroke-linejoin="round"
+        stroke-linecap="round"
+      ></path>
+    </svg>
+  </svg>
+</button>
+
+    
+  </div>
+  {error && <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-5">{error}</div>}
   <div className="overflow-x-auto">
     <table className="min-w-full divide-y divide-gray-200">
       <thead className="bg-[#05a1e0] text-white">
@@ -63,6 +87,7 @@ const AllReservas = () => {
     </table>
   </div>
 </div>
+
 
 
             <Modal show={loading} centered contentClassName="loading-modal">
