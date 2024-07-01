@@ -1,30 +1,55 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import LogoutButton from './LogoutButton';
-import { FaHome } from "react-icons/fa";
-import { FaUserCircle } from "react-icons/fa";
-import { RxTwitterLogo } from "react-icons/rx";
-import { SiAdguard } from "react-icons/si";
-
+import { FaHome, FaUserCircle } from 'react-icons/fa';
+import { RxTwitterLogo } from 'react-icons/rx';
+import { SiAdguard } from 'react-icons/si';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const CustomNavbar = () => {
-    return (
-        <header className='navBar'>
-          <ul className='ul_navBar'>
-            <li className='li_navBar'>
-            <FaHome color="white" />
-            <Link to="/inicio">Inicio</Link></li>
-            <li className='li_navBar'><FaUserCircle color='white' />
-            <Link to="/profile">Perfil</Link></li>
-            <li className='li_navBar'><RxTwitterLogo color='white' />
-            <Link to="/reservas/todas">Reservas Tecsup</Link></li>
-            <li className='li_navBar'><SiAdguard color='white'/>
-            <Link to="/reserva/misreservas">Mis reservas</Link></li>
-            
-            <LogoutButton/>
-          </ul>
-        </header>
-    );
+  return (
+    <header className="bg-primary py-3">
+      <div className="container">
+        <nav className="navbar navbar-expand-lg navbar-dark">
+          <Link className="navbar-brand" to="/inicio">Reservas</Link>
+          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav ml-auto">
+              <li className="nav-item">
+                <Link className="nav-link d-flex align-items-center" to="/inicio">
+                  <FaHome className="mr-2" />
+                  Inicio
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link d-flex align-items-center" to="/profile">
+                  <FaUserCircle className="mr-2" />
+                  Perfil
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link d-flex align-items-center" to="/reservas/todas">
+                  <RxTwitterLogo className="mr-2" />
+                  Reservas Tecsup
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link d-flex align-items-center" to="/reserva/misreservas">
+                  <SiAdguard className="mr-2" />
+                  Mis reservas
+                </Link>
+              </li>
+              <li className="nav-item">
+                <LogoutButton className="nav-link" />
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+  );
 };
 
 export default CustomNavbar;
