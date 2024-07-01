@@ -20,12 +20,12 @@ const App = () => {
 
                   {/*Rutas Protegidas*/}
         <Route path="/register" element={<Register />} />
-        <Route element={<ProtectRoute/>}>
+        {/* <Route element={<ProtectRoute/>}> */}
         <Route path="/inicio" element={<Home />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/reserva/misreservas" element={<ReservaList />} />
         <Route path="/reservas/todas" element={<AllReservas />} />
-        </Route>
+        {/* </Route> */}
 
       </Routes>
     </Router>
