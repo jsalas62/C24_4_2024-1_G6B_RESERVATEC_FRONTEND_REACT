@@ -36,7 +36,7 @@ const Home = () => {
         <div className="carousel-item active">
           <img src="/pelota1.jpg" className="d-block w-100 img_carrusel" alt="First slide" />
           <div className="carousel-caption d-none d-md-block">
-            <h5>"Reserva tu espacio deportivo favorito"
+            <h5>Reserva tu espacio deportivo favorito
             </h5>
             <p>Encuentra y reserva fácilmente canchas de fútbol, básquet, tenis y más. ¡Tu deporte, tu espacio, tu horario!</p>
           </div>
