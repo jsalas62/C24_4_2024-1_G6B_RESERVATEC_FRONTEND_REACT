@@ -14,7 +14,6 @@ const Register = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        // Obtener datos del usuario desde el perfil
         axiosInstance.get('/api/user/profile')
             .then(response => {
                 const { nombres, email, codigoTecsup, carrera } = response.data;
