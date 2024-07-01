@@ -7,11 +7,40 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+.inicio_login {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-image: url('/public/bdSports.jpg'); /* Ruta corregida */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100vh;
+  position: relative;
 }
-button {
+
+
+.stripes {
+  position: absolute;
+  width: 100%;
+  height: 110px;
+  background-color: rgba(255, 255, 255, 0.89);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.stripe-top {
+  top: 0;
+}
+
+.stripe-top img {
+  height: 220px;
+}
+.button {
   max-width: 320px;
   display: flex;
   padding: 0.5rem 1.4rem;
@@ -35,20 +64,6 @@ button {
   height: 24px;
 }
 
-button:hover {
+.button:hover {
   transform: scale(1.02);
 }
-
-.inicio_login {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  background-image: url('/public/bglogin.jpg');
-  background-size: cover; 
-  background-position: center;
-  background-repeat: no-repeat; 
-  width: 100%;
-  height: 100vh;
-}
-

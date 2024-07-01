@@ -2,6 +2,7 @@ import React from 'react';
 import axiosInstance from '../axiosConfig';
 
 const LogoutButton = () => {
+    
     const handleLogout = async () => {
         try {
             await axiosInstance.post('/logout');
@@ -10,6 +11,7 @@ const LogoutButton = () => {
         } catch (error) {
             console.error('Error al realizar logout:', error);
             alert('Error al intentar cerrar sesión. Inténtalo de nuevo.'); // Manejo básico de errores
+
         }
     };
 
