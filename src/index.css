@@ -16,7 +16,7 @@ body {
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  background-image: url('/public/bdSports.jpg'); /* Ruta corregida */
+  background-image: url('/public/bglow.jpg'); /* Ruta corregida */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
