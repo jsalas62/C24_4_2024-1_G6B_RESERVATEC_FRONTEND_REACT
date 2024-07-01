@@ -29,6 +29,7 @@ const ReservaList = () => {
 
     return (
         <div>
+            <CustomNavbar />
             <div className="container mx-auto mt-5 p-4">
                 <h1 className="text-3xl font-bold mb-4">Mis Reservas</h1>
                 {error && <p>Error: {error.message}</p>}

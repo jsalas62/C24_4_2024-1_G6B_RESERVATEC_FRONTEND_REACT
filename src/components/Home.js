@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import axiosInstance from '../axiosConfig'; 
 import { useNavigate } from 'react-router-dom';
+import CustomNavbar from './CustomNavbar';
 
 const Home = () => {
     const [message, setMessage] = useState('');
@@ -23,7 +24,7 @@ const Home = () => {
 
     return (
         <div>
-            
+            <CustomNavbar />
             <section className="section_Carrusel">
         <div id="carouselExampleCaptions" className="carousel slide" data-bs-ride="carousel">
       <div className="carousel-indicators">
@@ -33,21 +34,21 @@ const Home = () => {
       </div>
       <div className="carousel-inner">
         <div className="carousel-item active">
-          <img src="/carru1.jpg" className="d-block w-100 img_carrusel" alt="First slide" />
+          <img src="/pelota1.jpg" className="d-block w-100 img_carrusel" alt="First slide" />
           <div className="carousel-caption d-none d-md-block">
             <h5>First slide label</h5>
             <p>Some representative placeholder content for the first slide.</p>
           </div>
         </div>
         <div className="carousel-item">
-          <img src="/carru2.jpg" className="d-block w-100 img_carrusel" alt="Second slide" />
+          <img src="/pelota2.jpg" className="d-block w-100 img_carrusel" alt="Second slide" />
           <div className="carousel-caption d-none d-md-block">
             <h5>Second slide label</h5>
             <p>Some representative placeholder content for the second slide.</p>
           </div>
         </div>
         <div className="carousel-item">
-          <img src="/carru2.jpg" className="d-block w-100 img_carrusel" alt="Third slide" />
+          <img src="/pelota3.jpg" className="d-block w-100 img_carrusel" alt="Third slide" />
           <div className="carousel-caption d-none d-md-block">
             <h5>Third slide label</h5>
             <p>Some representative placeholder content for the third slide.</p>
